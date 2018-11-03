@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Safe Bears</string>
     <string name="title_activity_maps">Map</string>
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Change the following strings as required -->
+    <string name="back4app_app_id">GkgWWD5jNdFHOstnR4jOL3ZUftUFhQz7kqVlQnXZ</string>
+    <string name="back4app_client_key">pLPn1QKpSKaPCVJCIdVFjESCgwJcqMld2wuQzMlh</string>
 </resources>
