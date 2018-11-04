@@ -1,9 +1,206 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EntryActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/submitNewCrime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:gravity="center_horizontal"
+
+        android:text="Submit New Crime/Suspicious Activity"
+        android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:text="Submit New Crime/Suspicious Activity" />
+
+    <EditText
+        android:id="@+id/locationAddress"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submitNewCrime"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="1dp"
+        android:ems="10"
+        android:hint="Location Address"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/crimeDescription"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="78dp"
+        android:ems="10"
+        android:hint="Crime Description"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/timeID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="124dp"
+        android:ems="10"
+        android:hint="Time"
+        android:inputType="time" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeID"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="7dp"
+        android:text="Gender"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <RadioGroup
+        android:id="@+id/GenderGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeID"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="33dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radioButton"
+            android:layout_width="86dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="false"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/radioButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="N/A" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Unsure" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/AgeEstID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/GenderGroup"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:ems="10"
+        android:hint="Age Estimate"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AgeEstID"
+        android:text="Height (Feet):"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <Spinner
+        android:id="@+id/FeetID"
+        android:layout_width="189dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AgeEstID"
+        android:layout_toRightOf="@+id/FeetID"
+        android:text="Height (Inches):"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <Spinner
+        android:id="@+id/InchesID"
+        android:layout_width="191dp"
+        android:layout_height="36dp"
+        android:layout_below="@+id/textView5"
+        android:layout_toRightOf="@+id/FeetID" />
+
+    <EditText
+        android:id="@+id/weightID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/InchesID"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:hint="Weight (lbs)"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="186dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weightID"
+        android:text="Hair Color:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="197dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/weightID"
+        android:layout_toRightOf="@+id/textView6"
+        android:text="Eye Color:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu" />
+
+    <Spinner
+        android:id="@+id/HairID"
+        android:layout_width="185dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:id="@+id/EyeID"
+        android:layout_width="199dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/textView7"
+        android:layout_toRightOf="@+id/HairID" />
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/HairID"
+        android:layout_alignEnd="@+id/FeetID"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="-88dp"
+        android:text="Submit Information" />
+
+</RelativeLayout>
