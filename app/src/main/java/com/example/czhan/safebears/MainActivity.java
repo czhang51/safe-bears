@@ -3,24 +3,18 @@ package com.example.czhan.safebears;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.google.android.gms.maps.*;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.Parse;
+import com.parse.ParseInstallation;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
     ViewPager viewPager;
@@ -28,11 +22,20 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     BottomNavigationView bottomNavigationView;
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
-
+    private GoogleMap mMap;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.initialize(new Parse.Configuration.Builder(this)
+                .applicationId(getString(R.string.back4app_app_id))
+                // if defined
+                .clientKey(getString(R.string.back4app_client_key))
+                .server(getString(R.string.back4app_server_url))
+                .build()
+        );
+        ParseInstallation.getCurrentInstallation().saveInBackground();
+
         // Retrieve the content view that renders the map.
         setContentView(R.layout.activity_main);
         View decorView = getWindow().getDecorView();
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 }
                 return false;
             }
+
+
         });
         /*
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -90,13 +95,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         viewPager.setCurrentItem(0);
 
     }
+
+
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        // Add a marker in Sydney, Australia,
-        // and move the map's camera to the same location.
-        LatLng sydney = new LatLng(-33.852, 151.211);
-        googleMap.addMarker(new MarkerOptions().position(sydney)
-                .title("Marker in Sydney"));
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
     }
 }
