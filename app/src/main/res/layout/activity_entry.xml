@@ -201,6 +201,7 @@
         android:layout_alignEnd="@+id/FeetID"
         android:layout_marginTop="-1dp"
         android:layout_marginEnd="-88dp"
+        android:onClick="submit"
         android:text="Submit Information" />
 
 </RelativeLayout>

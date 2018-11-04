@@ -1,18 +1,25 @@
 package com.example.czhan.safebears;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
+
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 
@@ -100,6 +107,25 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        try {
+            // Customise the styling of the base map using a JSON object defined
+            // in a raw resource file.
+            boolean success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, R.raw.style_json));
 
+            if (!success) {
+                Log.e("tag", "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e("tag", "Can't find style. Error: ", e);
+        }
+        // Position the map's camera near Sydney, Australia.
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(-34, 151)));
+    }
+
+    public void report (View view) {
+        Intent intent = new Intent(this, EntryActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.czhan.safebears;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -62,5 +63,10 @@ public class EntryActivity extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> arg0) {
     // TODO Auto-generated method stub
 
+    }
+
+    public void submit (View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
