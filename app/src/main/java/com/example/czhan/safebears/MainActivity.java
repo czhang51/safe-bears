@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     final FragmentManager fragmentManager = getSupportFragmentManager();
     private ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getSupportFragmentManager());
     private GoogleMap mMap;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
