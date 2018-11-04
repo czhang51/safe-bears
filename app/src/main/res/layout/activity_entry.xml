@@ -113,12 +113,12 @@
         android:id="@+id/AgeEstID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/GenderGroup"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/GenderGroup"
         android:layout_marginStart="0dp"
         android:ems="10"
         android:hint="Age Estimate"
-        android:inputType="number" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView4"
@@ -197,11 +197,10 @@
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/HairID"
         android:layout_alignEnd="@+id/FeetID"
-        android:layout_marginTop="-1dp"
+        android:layout_below="@+id/HairID"
         android:layout_marginEnd="-88dp"
-        android:onClick="submit"
+        android:layout_marginTop="-1dp"
         android:text="Submit Information" />
 
 </RelativeLayout>
