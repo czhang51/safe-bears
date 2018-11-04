@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.example.czhan.safebears.models.Crime;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -36,6 +37,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.parse.Parse;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback,
         GoogleMap.OnMyLocationButtonClickListener,
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ParseObject.registerSubclass(Crime.class);
         Parse.initialize(new Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
                 // if defined
@@ -102,14 +105,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
 
         SupportMapFragment map1 = new SupportMapFragment();
-        TestFragment map = new TestFragment();
+        CrimeListFragment crimes = new CrimeListFragment();
         TestFragment map2 = new TestFragment();
 
         map1.getMapAsync(this);
         mLastKnownLocation = new Location("uwu");
         mLastKnownLocation.setLatitude(-33.852);
         mLastKnownLocation.setLongitude(151.211);
-        vpAdapter.addFragment(map);
+        vpAdapter.addFragment(crimes);
         vpAdapter.addFragment(map1);
         vpAdapter.addFragment(map2);
 
@@ -199,6 +202,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 0);
             mMap.setMyLocationEnabled(true);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        
     }
 
     @Override

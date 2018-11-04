@@ -2,6 +2,7 @@ package com.example.czhan.safebears.models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.io.Serializable;
@@ -20,6 +21,9 @@ public class Crime extends ParseObject implements Serializable{
     private static final String KEY_SUS_HAIR = "hair";
     private static final String KEY_SUS_EYE = "eye";
 
+    public Crime() {
+
+    }
     public ParseUser getUser() {
         return getParseUser(KEY_USER);
     }
@@ -106,5 +110,16 @@ public class Crime extends ParseObject implements Serializable{
 
     public void setEye(String eye) {
         put(KEY_SUS_EYE, eye);
+    }
+
+    public static class Query extends ParseQuery<Crime> {
+        public Query() {
+            super(Crime.class);
+        }
+
+        public Crime.Query withLocation() {
+            include(KEY_LOCATION);
+            return this;
+        }
     }
 }

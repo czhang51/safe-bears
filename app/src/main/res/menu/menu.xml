@@ -5,19 +5,19 @@
         android:id="@+id/action"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="test"
+        android:title="Alerts"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action1"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="test"
+        android:title="Map"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action2"
         android:enabled="true"
         android:icon="@mipmap/ic_launcher_round"
-        android:title="test"
+        android:title="My Alerts"
         app:showAsAction="ifRoom" />
 
 </menu>
